@@ -1,0 +1,165 @@
+
+
+<!doctype>
+<html lang="en">
+
+<head>
+
+	<!--
+
+	Source images credited to:
+
+	David Wright Photography
+	https://www.davidwright.photography/MODERNTRIBESOFENGLAND/IRELANDATTHEENDOFTHEMILLENNIUM
+
+	NLI Collection/Colm Doyle Collection
+	https://catalogue.nli.ie/Collection/vtls000315692
+
+	Independent News And Media/Getty Images
+
+	Chris Steele-Perkins / Magnum 
+	https://www.theguardian.com/artanddesign/gallery/2021/jul/28/they-stood-firm-poverty-and-police-violence-in-70s-northern-ireland-in-pictures
+
+	Keystone/Getty Images
+	https://flashbak.com/photos-of-children-in-the-troubles-northern-ireland-1969-1981-53649/
+
+
+
+
+		
+	-->
+
+	<title>Demo page, changing aspect ratios</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0,user-scalable=0, target-densityDpi=device-dpi" />
+	<meta name="title" content="Demo page, slideshow" />
+	<meta name="year" content="2023" />
+
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+	<link rel="icon" type="image/ico" href="favicon.ico">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+	<style>
+
+		html, body {
+			background-color: #000000;
+			margin: 0;
+			padding: 0;background-image: url('imgs/WP_BG.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			
+		}
+
+		.imageContainer {
+		    display: block;
+		    padding: 0;
+		}
+
+		.imageContainer li {
+		    display: none;
+		    max-width: 100%;
+		}
+
+		.imageContainer li.active {
+		    display: block;
+		}
+
+		.imageContainer li img {
+			cursor: pointer;
+		    width: 100vw;
+			height: 100vh;
+			object-fit: cover;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="slider">
+		<ul class="imageContainer">
+			<li class="active"><img src="imgs/WP_2-01.png"/></li>
+			<li><img src="imgs/WP_2-02.png"/></li>
+			<li><img src="imgs/WP_2-03.png"/></li>
+			<li><img src="imgs/WP_2-04.png"/></li>
+			<li><img src="imgs/WP_2-05.png"/></li>
+			<li><img src="imgs/WP_2-06.png"/></li>
+			<li><img src="imgs/WP_2-07.png"/></li>
+			<li><img src="imgs/WP_2-08.png"/></li>
+			<li><img src="imgs/WP_2-09.png"/></li>
+			<li><img src="imgs/WP_2-10.png"/></li>
+			<li><img src="imgs/WP_2-11.png"/></li>
+			<li><img src="imgs/WP_2-12.png"/></li>
+			<li><img src="imgs/WP_2-13.png"/></li>
+			<li><img src="imgs/WP_2-14.png"/></li>
+			<li><img src="imgs/WP_2-15.png"/></li>
+			<li><img src="imgs/WP_2-16.png"/></li>
+			<li><img src="imgs/WP_2-17.png"/></li>
+			<li><img src="imgs/WP_2-18.png"/></li>
+			<li><img src="imgs/WP_2-19.png"/></li>
+			<li><img src="imgs/WP_2-20.png"/></li>
+			<li><img src="imgs/WP_2-21.png"/></li>
+			<li><img src="imgs/WP_2-22.png"/></li>
+			<li><img src="imgs/WP_2-23.png"/></li>
+			<li><img src="imgs/WP_2-24.png"/></li>
+			<li><img src="imgs/WP_2-25.png"/></li>
+			<li><img src="imgs/WP_2-26.png"/></li>
+			<li><img src="imgs/WP_2-27.png"/></li>
+			<li><img src="imgs/WP_2-28.png"/></li>
+			<li><img src="imgs/WP_2-29.png"/></li>
+			<li><img src="imgs/WP_2-30.png"/></li>
+			<li><img src="imgs/WP_2-31.png"/></li>
+			<li><img src="imgs/WP_2-32.png"/></li>
+			<li><img src="imgs/WP_2-33.png"/></li>
+			<li><img src="imgs/WP_2-34.png"/></li>
+			<li><img src="imgs/WP_2-35.png"/></li>
+
+		<!-- REPEAT BACKWARDS -->
+		<!--
+		<li><img src="imgs/study-02.gif"/></li>
+		<li><img src="imgs/study-01.gif"></li>
+		-->
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+
+		function slideshow(slider) {
+
+		// Image Slideshow
+		var $first = $(slider).find(' .imageContainer li:first');
+		var $slides = $(slider).find(".imageContainer").children();
+		console.log($slides);
+		var imageNo = $slides.length;
+		var i = 0;
+
+		// Click Image or Next ++
+		$(slider).find(".nextImage, .imageContainer li img").click(function(){
+		    var $next, $active = $(slider).find(".active");
+
+
+		    $next = $active.next('li').length ? $active.next('li') : $first;
+		    $active.removeClass("active");
+		    $next.addClass('active');
+
+		    i = i + 1;
+		    i = i % $slides.length; // If too high, Reset to 0;
+		    $(slider).find("li .counter").html((i + 1) + " / " + imageNo);
+		});
+
+		}
+
+		$(document).ready(function() {
+            // type slideshow("#thisID"); to include a new one
+            slideshow("#slider");
+        });
+	</script>
+
+</body>
+
+</html>
